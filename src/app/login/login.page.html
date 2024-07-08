@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Login</ion-button>
+  </form>
+
+  <ion-item>
+    <ion-label position="floating">Phone Number</ion-label>
+    <ion-input [(ngModel)]="phoneNumber" name="phoneNumber" type="tel" required></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="startPhoneVerification()">Send Verification Code</ion-button>
+
+  <div *ngIf="isPhoneVerification">
+    <ion-item>
+      <ion-label position="floating">Verification Code</ion-label>
+      <ion-input [(ngModel)]="verificationCode" name="verificationCode" required></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="verifyPhone()">Verify Code</ion-button>
+  </div>
+
+  <ion-button expand="full" fill="clear" (click)="goToRegister()">Register</ion-button>
+</ion-content>
+

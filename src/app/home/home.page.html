@@ -1,0 +1,20 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isAuthenticated">
+    <div *ngIf="isAdmin">
+      <p>Bienvenido, Admin!</p>
+    </div>
+    <div *ngIf="!isAdmin">
+      <p>Bienvenido, Usuario!</p>
+    </div>
+  </div>
+  <div *ngIf="!isAuthenticated">
+    <p>Bienvenido, Visita!</p>
+  </div>
+</ion-content>

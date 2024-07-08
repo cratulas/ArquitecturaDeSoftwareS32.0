@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateTo('/home')">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button>
+      <ion-button (click)="navigateTo('/catalog')">
+        <ion-icon name="list-outline"></ion-icon>
+        Catalog
+      </ion-button>
+      <ion-button (click)="navigateTo('/cart')">
+        <ion-icon name="cart-outline"></ion-icon>
+        Carro
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="isAuthenticated" (click)="navigateTo('/modify')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isAdmin" (click)="navigateTo('/comuna')">
+        <ion-icon name="business-outline"></ion-icon>
+        Comuna
+      </ion-button>
+            <ion-button *ngIf="isAdmin" (click)="navigateTo('/region')">
+        <ion-icon name="map-outline"></ion-icon>
+        Region
+      </ion-button>
+      <ion-button *ngIf="isAdmin" (click)="navigateTo('/product')">
+        <ion-icon name="business-outline"></ion-icon>
+        Producto
+      </ion-button>
+      <ion-button *ngIf="isAdmin" (click)="navigateTo('/supplier')">
+        <ion-icon name="business-outline"></ion-icon>
+        Proveedor
+      </ion-button>
+
+      <ion-button *ngIf="isAuthenticated" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!isAuthenticated" (click)="navigateTo('/login')">
+        <ion-icon name="log-in-outline"></ion-icon>
+        Login
+      </ion-button>
+      <ion-button *ngIf="!isAuthenticated" (click)="navigateTo('/register')">
+        <ion-icon name="person-add-outline"></ion-icon>
+        Registro
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

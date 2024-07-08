@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of cartItems">
+      <ion-thumbnail slot="start">
+        <img [src]="getProductById(item.productId)?.fotoUrl" alt="{{ getProductById(item.productId)?.nombre }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ getProductById(item.productId)?.nombre }}</h2>
+        <p>{{ getProductById(item.productId)?.precio | currency }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>Total:</ion-label>
+    <ion-note slot="end">{{ total | currency }}</ion-note>
+  </ion-item>
+
+  <ion-button expand="full" (click)="clearCart()">Clear Cart</ion-button>
+  <ion-button expand="full" (click)="goToPayment()">Ir al pago</ion-button>
+</ion-content>
